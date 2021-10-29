@@ -49,18 +49,18 @@ class ExceptionListener
         $response->setContent($message);
 
 
-        if ($exception instanceof HttpExceptionInterface) {
+        // if ($exception instanceof HttpExceptionInterface) {
 
-            $response->setStatusCode($exception->getStatusCode());
+        //     $response->setStatusCode($exception->getStatusCode());
 
-            $response->headers->replace($exception->getHeaders());
-        } else {
+        //     $response->headers->replace($exception->getHeaders());
+        // } else {
 
-            $response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
+        //     $response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
+        // }
 
         // sends the modified response object to the event
 
-        $event->setResponse($response);
+        // $event->setResponse($response);
     }
 }

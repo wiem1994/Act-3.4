@@ -5,9 +5,11 @@ namespace AppBundle\Controller;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Controller\Dispatcher;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
+
 
 class FileSystemImproved extends Controller
 {
@@ -44,6 +46,9 @@ class FileSystemImproved extends Controller
             if (!$fs->exists($new_file_path)) {
                 $fs->touch($new_file_path);
                 $fs->chmod($new_file_path, 0777);
+                $dispatcher = new Dis();
+                $name = 'fileCreated';
+                $dispatcher->dispatch($dispatcher, $name);
             } else {
                 echo "The file is already created !";
                 return $this->getFiles();
@@ -69,7 +74,7 @@ class FileSystemImproved extends Controller
             if (file_exists($path)) {
                 $fs->remove($path);
             } else {
-                return "false : file does not exist";
+                return new Response('<html><body>false, file does not exist" </body></html>');
             }
         } catch (IOExceptionInterface $exception) {
             echo "Error creating file at" . $exception->getPath();
@@ -144,9 +149,9 @@ class FileSystemImproved extends Controller
         $current_dir_path = getcwd();
         $path = $current_dir_path . "/fsi/";
         $files = scandir($path);
-        foreach ($files as &$value) {
-            echo  $value . "</br>";
-        }
-        return new JsonResponse(json_encode(file($files)));
+        // foreach ($files as &$value) {
+        //     echo  $value . "</br>";
+        // }
+        return new JsonResponse(json_encode($files));
     }
 }
