@@ -7,6 +7,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class FileSystemImproved extends Controller
 {
@@ -44,12 +45,14 @@ class FileSystemImproved extends Controller
                 $fs->touch($new_file_path);
                 $fs->chmod($new_file_path, 0777);
             } else {
-                return new Response('<html><body>The file is already created ! </body></html>');
+                echo "The file is already created !";
+                return $this->getFiles();
             }
         } catch (IOExceptionInterface $exception) {
             echo "Error creating file at" . $exception->getPath();
         }
-        return new Response('<html><body>The file has been successfully created ! </body></html>');
+        echo "the file : " . "<B>" . $filename . "</B>" . " has been successfully created";
+        return $this->getFiles();
     }
 
 
@@ -61,17 +64,18 @@ class FileSystemImproved extends Controller
     {
         $fs = new Filesystem();
         $current_dir_path = getcwd();
-        $path = $current_dir_path . "/fsi" . $filename;
+        $path = $current_dir_path . "/fsi/" . $filename;
         try {
             if (file_exists($path)) {
                 $fs->remove($path);
             } else {
-                return new Response('<html><body>The filename has been successfully deleted ! </body></html>');
+                return "false : file does not exist";
             }
         } catch (IOExceptionInterface $exception) {
             echo "Error creating file at" . $exception->getPath();
+            return "false";
         }
-        return new Response('<html><body>The filename has been successfully deleted ! </body></html>');
+        return new Response('<html><body>true </body></html>');
     }
 
 
@@ -87,7 +91,8 @@ class FileSystemImproved extends Controller
             $handle = fopen($path, "r");
             if ($handle) {
                 foreach (file($path) as $line) {
-                    echo '<html><body></br>' . $line . '</body></html>';
+                    // echo '<html><body></br>' . $line . '</body></html>';
+                    $line;
                 }
             } else {
                 return new Response('<html><body>you can not read an unexsisted file! </body></html>');
@@ -96,20 +101,31 @@ class FileSystemImproved extends Controller
         } catch (IOExceptionInterface $exception) {
             echo "Error creating file at" . $exception->getPath();
         }
-        return new Response('<html><body>file readed </body></html>');
+        //return new Response('<html><body>file readed </body></html>');
+        return new JsonResponse(json_encode(file($path)));
     }
 
     /**
-     * @Route("/write-in-file/{filename}/{text}")
+     * @Route("/write-in-file/{filename}/{text}/{offset}")
      */
-    public function writeinFile($filename, $text)
+    public function writeinFile($filename, $text, $offset = 0)
     {
         $fs = new Filesystem();
         $current_dir_path = getcwd();
         try {
             $new_file_path = $current_dir_path . "/fsi/" . $filename;
             if ($fs->exists($new_file_path)) {
-                $fs->appendToFile($new_file_path, $text . "\n");
+
+                $file = fopen($new_file_path, "c");
+                // fseek($file, $offset);
+                $array = file($new_file_path);
+                var_dump($array);
+                // $array[0] = $text;
+                array_unshift($array, $text);
+                var_dump($array);
+                // fclose($new_file_path);
+                $x = implode(",", $array);
+                fwrite($file, $x);
             } else {
                 return new Response('<html><body>The filename does not exist ! </body></html>');
             }
@@ -117,5 +133,20 @@ class FileSystemImproved extends Controller
             echo "Error creating file at" . $exception->getPath();
         }
         return new Response('<html><body>The content has been successfully added to the file ! </body></html>');
+    }
+
+    /**
+     * @Route("/state")
+     */
+
+    public function getFiles()
+    {
+        $current_dir_path = getcwd();
+        $path = $current_dir_path . "/fsi/";
+        $files = scandir($path);
+        foreach ($files as &$value) {
+            echo  $value . "</br>";
+        }
+        return new JsonResponse(json_encode(file($files)));
     }
 }

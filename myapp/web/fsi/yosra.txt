@@ -8,3 +8,9 @@ add
 add
 add
 add
+My Error says: No route found for "GET /read-file/yosra.txt/jsjsjsj" with code: 0
+My Error says: No route found for "GET /read-file/yosra.txt/jsjsjsj" with code: 0
+My Error says: No route found for "GET /read-file/yosra.txt/jsjsjsj" with code: 0
+My Error says: No route found for "GET /read-file/yosra.txt/jsjsjsj" with code: 0
+My Error says: No route found for "GET /read-file/yosra.txt/jsjsjsj" with code: 0
+My Error says: Catchable Fatal Error: Object of class AppBundle\Controller\FileSystemImproved could not be converted to string with code: 0

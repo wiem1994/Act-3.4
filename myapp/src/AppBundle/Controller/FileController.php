@@ -28,6 +28,7 @@ class FileController extends Controller
                 return new Response('<html><body>The file is already created ! </body></html>');
             }
         } catch (IOExceptionInterface $exception) {
+            $var = $exception->getPath();
             echo "Error creating file at" . $exception->getPath();
         }
         return new Response('<html><body>The file has been successfully created ! </body></html>');

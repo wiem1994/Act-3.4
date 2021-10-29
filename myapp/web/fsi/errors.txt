@@ -1,0 +1,48 @@
+My Error says: No route found for "GET /read-file/yosra.txt/jsjsjsj" with code: 0
+My Error says: No route found for "GET /read-file/yosra.txt/jsjsjsj" with code: 0
+My Error says: The controller must return a response (null given). Did you forget to add a return statement somewhere in your controller? with code: 0
+My Error says: The controller must return a response (null given). Did you forget to add a return statement somewhere in your controller? with code: 0
+My Error says: The controller must return a response (null given). Did you forget to add a return statement somewhere in your controller? with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: No route found for "GET /sta" with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: No route found for "GET /122.txt" with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: Warning: file() expects parameter 1 to be a valid path, array given with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (false given). with code: 0
+My Error says: The controller must return a response (echo false given). with code: 0
+My Error says: The controller must return a response (false : file does not exist given). with code: 0
+My Error says: The controller must return a response (false : file does not exist given). with code: 0
+My Error says: The controller must return a response (false : file does not exist given). with code: 0
